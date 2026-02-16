@@ -12,4 +12,6 @@ class SandwichMaker:
         return True
 
     def make_sandwich(self, sandwich_size, order_ingredients):
-        ########
+        for item in order_ingredients:
+            self.resources[item] -= order_ingredients[item]
+            print(f"Here is your {sandwich_size} ham sandwich Enjoy!")

@@ -25,11 +25,12 @@ def main():
         elif choice in recipes:
             sandwich = recipes[choice]
             cost = sandwich["cost"]
+            ingredients = sandwich["ingredients"]
 
-            if SandwichMaker.check_resources(sandwich):
+            if sandwich_maker_instance.check_resources(ingredients):
                 payment = cashier_instance.process_coins()
 
                 if cashier_instance.transaction_result(payment,cost):
-                    sandwich_maker_instance.make_sandwich(choice,sandwich)
+                    sandwich_maker_instance.make_sandwich(choice,ingredients)
 if __name__=="__main__":
     main()
